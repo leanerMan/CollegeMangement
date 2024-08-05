@@ -1,0 +1,116 @@
+
+  <div class="white-box">
+    <div class="titles aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">Add contact</div>
+    <form #contactForm="ngForm" (ngSubmit)="savecontact()">
+      <div class="flexspace">
+      <div class="formsec formleft">
+        <ul class="list3">
+          <li>
+            <div class="form-group">
+              <label class="required">Full Name</label>
+              <input type="text" class="form-control" placeholder="Full Name" required maxlength="30"
+                [(ngModel)]="contact.name" name="name" #name="ngModel" pattern="[A-Za-z ]+">
+              @if ((name.dirty || name.touched)){            
+              @if (name.hasError('required')) {
+                <div class="msg">name is required</div>
+               }
+               @if (name.hasError('pattern')) {
+                <div class="msg">Please enter Alphabeticlly</div>
+               }
+              }
+            </div>
+          </li>
+
+         
+          <li>
+            <div class="form-group">
+              <label class="required">Mobile</label>
+              <input type="text" class="form-control" placeholder="Mobile" [(ngModel)]="contact.mobile" name="mobile"
+                     maxlength="10" required #mobile="ngModel" pattern="[0-9]{10}">
+            </div>
+            @if (mobile.invalid && (mobile.dirty || mobile.touched)) {
+              <div  class="text-danger">
+              @if (mobile.hasError('required')) {
+                <div class="msg">Mobile is required</div>
+              }
+              @if (mobile.hasError('pattern')) {
+                <div class="msg">Please enter a 10-digit mobile number</div>
+              }
+             
+            </div>
+          }
+          </li>
+          
+         
+          <li>
+            <div class="form-group">
+              <label class="required">Email</label>
+              <input type="email" class="form-control" placeholder="test@gmail.com" email required [(ngModel)]="contact.email"
+                name="email" #email="ngModel">
+            </div>
+            @if (email.dirty || email.touched ){
+             
+              @if (email.hasError('required')) { <div class="msg">Email is required</div>}
+              @if (email.hasError('email')) { <div class="msg">Please provide valid email</div>}
+              }
+          </li>
+          <li>
+            <div class="form-group">
+              <label class="required">Birth Date</label>
+              <input class="datepicker form-control" placeholder="DD-MM-YYYY" required matInput [matDatepicker]="picker"
+                (click)="picker.open()" [(ngModel)]="contact.birthDate" name="birthDate" required #birthDate="ngModel">
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+            @if ((birthDate.dirty || birthDate.touched) && birthDate.hasError('required') ){
+              <div class="msg">birthDate is required</div>
+              }
+          </li>
+          <!-- <li>
+            <div class="form-group">
+              <label class="required">Upload</label>
+              <input type="file" accept="image/*" class="form-control" (change)="onFileSelected($event)" name="upload">
+            </div>
+          </li> -->
+          <li class="twoQuarter">
+            <div class="form-group">
+              <label class="required">Address</label>
+              <input type="text" class="form-control" placeholder="Address" required="" pattern="[A-Za-z0-9 ]+" name="address" #address="ngModel" [(ngModel)]="contact.address" maxlength="50"
+                name="address">
+            </div>
+            @if (address.hasError('pattern')) {
+              <div class="msg">Please enter Alphanumeric</div>
+             }
+          </li>
+          <li class="lfull">
+            <div class="form-group">
+              <label class="required">note</label>
+              <input type="text" class="form-control" placeholder="Write text..." required pattern="[A-Za-z0-9 ]+" name="note" #note="ngModel" [(ngModel)]="contact.note" maxlength="30"
+                name="note">
+            </div>
+            @if (note.hasError('pattern')) {
+              <div class="msg">Please enter Alphanumeric</div>
+             }
+          </li>
+        </ul>
+      </div>
+  
+      <div class="formright">
+        <div class="uploadimg">
+          <span [className]="imageUploaded==true?'image-uploaded btn_upload':'btn_upload'">
+            <input type="file" id="imag" title="" (change)="onFileChange($event)" class="input-img"/>
+            <span>Click to Upload Photo</span>
+          </span>
+          <img id="ImgPreview" [src]="imageSrc" class="preview1" />
+          <button type="button" id="removeImage1" (click)="removeImage()"  [className]="imageUploaded==true?'rmv btn-rmv1':'btn-rmv1'"><i class="fa fa-trash"></i></button>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+      <div class="form-group text-center ">
+        <button class="btn bluebtn" [disabled]="!contactForm.valid" type="submit">Submit</button>
+        <button class="btn bluebtn cancel-btn" type="reset">Cancel</button>
+      </div>
+    </form>
+  </div>

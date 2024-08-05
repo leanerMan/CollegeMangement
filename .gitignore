@@ -1,0 +1,21 @@
+# Node.js (Angular)
+node_modules/
+dist/
+*.log
+
+# Spring Boot
+/target/
+*.log
+*.class
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.iml
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Other
+*.env

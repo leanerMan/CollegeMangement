@@ -1,0 +1,59 @@
+
+<div class="white-box">
+<div class="titles aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">All Students</div> 
+    <div class="tabletop fcs">
+      <div><a class="btn bluebtn" (click)="newStudent()">+ Add Student</a></div>
+      <div class="searchfield"><input class="form-control" type="text" value="" placeholder="Search" (change)="search()" [(ngModel)]="keyword"></div>
+    </div>
+    <div class="tablesec">
+      <table class="table ">
+        <thead> 
+          <tr>  
+<!-- ₹ -->
+            <th><input type="checkbox"></th>
+            <th width="50">Image</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Gender</th>
+            <th>Roll No</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Admission Date</th>
+            <th width="100">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of students; track $index) {
+            <tr> 
+              <td><input type="checkbox"></td>
+              <td><img src="https://cargofile.s3.ap-south-1.amazonaws.com/students/{{item.profilePhoto}}" alt="{{item.profilePhoto}}" height="30"></td>
+              <td>{{item.studentName}}</td>
+              <td>{{item.course}} </td>
+              <td>{{item.gender}}</td>
+              <td>{{item.rollNo}}</td>
+              <td>{{item.mobile}}</td> 
+              <td>{{item.email}}</td>
+              <td>{{item.admissionDate}}</td>
+              <td>
+                 <button class="btn editbtn"  (click)="editStudent(item.id)"><i class="fa fa-pencil"></i></button> 
+                 <button class="btn viewbtn"  (click)="viewStudent(item.id)"><i class="fa fa-eye"></i></button> 
+                 <button class="btn deletebtn" (click)="removeStudent(item.id)"><i class="fa fa-trash"></i></button> 
+              </td> 
+            </tr>
+          }
+          
+        </tbody>
+      </table>
+      <mat-paginator #paginator class="demo-paginator"
+      (page)="handlePageEvent($event)" [length]="length"
+       [pageSize]="pageSize" [disabled]="disabled"
+        [showFirstLastButtons]="showFirstLastButtons"
+       [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+        [hidePageSize]="hidePageSize"
+       [pageIndex]="pageIndex" aria-label="Select page">
+     </mat-paginator>
+    </div>
+    </div>
+
+    
+  

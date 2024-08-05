@@ -1,0 +1,68 @@
+@if (department) {
+  <div class="white-box">
+    <div class="titles" data-aos="fade-up" data-aos-duration="1000">Edit Department</div>
+    <form  (ngSubmit)="updateDepartment()">
+      <div class="formsec">
+        <ul class="list3">
+          <li>
+            <div class="form-group">
+              <label class="required">Department</label>
+              <input type="text" class="form-control" [(ngModel)]="department.department" name="department" required/>
+            </div>
+          </li>
+          <li>
+            <div class="form-group">
+              <label class="required">Head Of Department</label>
+              <input type="text" class="form-control" placeholder="Head Of Department" [(ngModel)]="department.headOfDepartment" name="headOfDepartment" required="" />
+  
+            </div>
+          </li>
+  
+          <li>
+            <div class="form-group">
+              <label class="required">Phone</label>
+              <input type="text" class="form-control" [(ngModel)]="department.phone" name="phone" placeholder="Phone" />
+            </div>
+          </li>
+  
+          <li>
+            <div class="form-group">
+              <label class="required">Email</label>
+              <input type="email" class="form-control" [(ngModel)]="department.email" name="email" placeholder="test@gmail.com" required="" />
+  
+            </div>
+          </li>
+          <li>
+            <div class="form-group">
+              <label class="required">Department Start Date</label>
+              <input class="datepicker form-control" placeholder="DD-MM-YYYY" required matInput [matDatepicker]="picker"
+              (click)="picker.open()" [(ngModel)]="department.departmentStartDate" name="departmentStartDate" #departmentStartDate="ngModel">
+            <mat-datepicker #picker></mat-datepicker>
+  
+            </div>
+          </li>
+          <li>
+            <div class="form-group">
+              <label class="required">Student Capacity</label>
+              <input type="text" class="form-control" [(ngModel)]="department.studentCapacity" name="studentCapacity" placeholder="Student Capacity" />
+  
+            </div>
+          </li>
+          <li class="lfull">
+            <div class="form-group">
+              <label class="required">Details</label>
+              <textarea class="form-control" [(ngModel)]="department.details" name="details" placeholder="Details"></textarea>
+            </div>
+          </li>
+          <li>
+            <div class="form-group">
+              <button class="btn bluebtn">Submit</button>
+              <button class="btn ">Cancel</button>
+            </div>
+          </li>
+  
+        </ul>
+      </div>
+    </form>
+  </div>
+}

@@ -1,0 +1,136 @@
+/* .leftlog {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0%, -50%);
+    justify-content: center;
+} */
+
+.leftlog {
+    display: flex;
+    /* flex-wrap: wrap; */
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0%, -50%);
+    justify-content: center;
+}
+
+.loginPage:before {
+    content: "";
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff url(../../../assets/images/logbg3.png) center center no-repeat;
+    background-size: cover;
+}
+
+.loginPage:after {
+    content: "";
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: var(--dark-blue) url(../../../assets/images/logbg2.png) center center no-repeat;
+    background-size: cover;
+}
+
+.loginsec {
+
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0%, -50%);
+    z-index: 2;
+}
+
+
+
+.formsec {
+    font-size: 13px;
+    width: 360px;
+    margin: 0 auto;
+}
+
+.formsec h1 {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--white);
+}
+
+.half {
+    height: 400px;
+    padding: 50px;
+    width: 50%;
+    color: var(--white);
+}
+
+.bgsec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.trtext {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.formsec input:focus {
+    outline: none;
+}
+
+.formsec input,
+.formsec button,
+.btnlogin {
+    width: 100%;
+    border: none;
+    line-height: 24px;
+    background: var(--white);
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: var(--dark-blue);
+}
+
+.btnlogin {
+    /* background: var(--white);
+    color: var(--dark-blue); */
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#universitydash:hover {
+    background: #1655b7;
+    color: var(--white);
+}
+
+.forgot {
+    margin-top: 10px;
+    color: var(--dark-blue);
+    display: inline-block;
+    text-decoration: underline;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: #23527c;
+}
+
+.btnlogin:hover {
+    background: #1655b7;
+    color: var(--white);
+}

@@ -1,0 +1,101 @@
+<div class="white-box">
+    <div class="titles" data-aos="fade-up" data-aos-duration="1000">Edit Staff</div> 
+    <div class="formsec">
+          <ul class="list3"> 
+            <li>
+                <div class="form-group">
+                  <label class="required">First Name</label>
+                  <input type="text" class="form-control" placeholder="First Name" required [(ngModel)]="staff.firstName" />
+                </div>
+            </li>
+            <li>
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="staff.lastName"/>
+                </div>
+            </li>
+     
+            <li>
+              <div class="form-group">
+                  <label class="required">Gender</label>
+                  <select class="form-control" [(ngModel)]="staff.gender" name="gender">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                  </select>
+              </div>
+          </li>
+          
+          <li>
+            <div class="form-group">
+                <label class="required">Mobile</label>
+                <input type="text" class="form-control" placeholder="Mobile" [(ngModel)]="staff.mobile"  />
+            </div>
+        </li>
+        <li>
+            <div class="form-group">
+                <label class="required">Designation</label>
+                <input type="text" class="form-control" placeholder="Designation" [(ngModel)]="staff.designation" name="designation" />
+            </div>
+        </li>
+        
+        <li>
+          <div class="form-group">
+              <label class="required">Departments</label>
+              <select class="form-control" [(ngModel)]="staff.departments" name="departments">
+                  <option value="">Select Departments</option>
+                  <option value="Science">Science</option> 
+                  <option value="English">English</option>
+                  <option value="Math">Math</option>
+              </select>
+          </div>
+      </li>
+      
+      <li>
+        <div class="form-group">
+            <label class="required">Email</label>
+            <input type="email" class="form-control" placeholder="test@gmail.com" [(ngModel)]="staff.email" name="email" required />
+        </div>
+    </li>
+    <li>
+        <div class="form-group">
+            <label class="required">Date</label>
+            <input type="text" class="datepicker form-control" placeholder="DD-MM-YYYY" [(ngModel)]="staff.joiningDate" name="date" required />
+        </div>
+    </li>
+    <li>
+        <div class="form-group">
+            <label class="required">Upload Image</label>
+            <input  type="File" class="form-control"  [(ngModel)]="staff.profilePhoto" (change)="handleFileInput($event)"  accept="image/*"  />
+        </div>
+    </li>
+    
+    
+  
+  <li class="lfull">
+    <div class="form-group">
+        <label class="required">Address</label>
+        <input type="text" class="form-control" placeholder="Address" [(ngModel)]="staff.address" name="address" required />
+    </div>
+</li>            
+<li class="lfull">
+  <div class="form-group">
+      <label class="required">Education</label>
+      <input type="text" class="form-control" placeholder="Write text..." [(ngModel)]="staff.education" name="education" required />
+  </div>
+</li>
+
+<li>
+  <div class="form-group text-center"> 
+      <button type="submit" class="btn bluebtn" (click)="onupdate()" >Update</button>
+      <button type="button" class="btn" (click)="close()" >Back</button>
+  </div>
+</li>
+
+            
+        </ul>
+      </div>
+      
+    </div>  
+
+

@@ -1,0 +1,53 @@
+
+  <div class="white-box">
+    <div class="titles aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">All contacts</div>
+    <div class="tabletop fcs">
+    
+      <div><button class="btn bluebtn" (click)="addcontact()">+ Add contact</button></div>
+      <div class="searchfield"><input class="form-control" type="text" value="" placeholder="Search"  (change)="search()" [(ngModel)]="keyword"></div>
+    </div>
+    <div class="tablesec">
+      <table class="table">
+        <thead>
+          <tr>
+            <!-- ₹ -->
+            <th><input type="checkbox"></th>
+            <th width="50">Image</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Birth Date</th>
+            <th>Address</th>
+            <th width="100">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of contacts; track $index) {
+          <tr>
+            <td><input type="checkbox"></td>
+            <td><img src="https://cargofile.s3.ap-south-1.amazonaws.com/contacts/{{item.contactImageName}}" alt="contact" height="30"></td>
+            <td>{{item.name }}</td>
+            <td>{{item.mobile}} </td>
+            <td>{{item.birthDate | date:'dd-MM-yyyy'}}</td>
+            <td>{{item.address}}</td>
+            <td>{{item.address}}</td>
+           
+            <td>
+              <button class="btn editbtn " matTooltip="Edit" (click)="editcontact(item.id)"><i class="fa fa-pencil"></i></button>
+              <button class="btn viewbtn" matTooltip="View" (click)="aboutcontact(item.id)"><i class="fa fa-eye"></i></button>
+              <button class="btn deletebtn" matTooltip="Delete" (click)="removecontact(item)"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+      <mat-paginator #paginator class="demo-paginator"
+       (page)="handlePageEvent($event)" [length]="length"
+        [pageSize]="pageSize" [disabled]="disabled"
+         [showFirstLastButtons]="showFirstLastButtons"
+        [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+         [hidePageSize]="hidePageSize"
+        [pageIndex]="pageIndex" aria-label="Select page">
+      </mat-paginator>
+    </div>
+  </div>

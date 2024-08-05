@@ -1,0 +1,79 @@
+<div class="breadcrumbsec">
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a>Time Holiday</a></li>
+      <li>Edit Holiday</li>
+    </ul>
+  </div>
+  <div class="white-box">
+    <div class="titles aos-init aos-animate" data-aos="fade-up"  data-aos-duration="1000">Edit HoliDay</div> 
+    <form #holidayForm="ngForm">
+    <div class="formsec">
+      <ul class="list3"> 
+        <li>
+            <div class="form-group">
+              <label class="required">Title</label>
+              <input type="text" class="form-control" placeholder="Title" 
+              maxlength="30" [(ngModel)]="selectHoliday.title" #title="ngModel" name="title" pattern="[A-Za-z ]+" required>
+            </div>
+            <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+              <div *ngIf="title.errors?.['required']">Title is required.</div>
+              <div *ngIf="title.errors?.['pattern']">Title should be In Character.</div>
+            </div>
+        </li>
+        <li>
+            <div class="form-group">
+              <label class="required">Start Date</label>
+              <input  class="datepicker form-control" placeholder="DD-MM-YYYY" name="startDime" matInput [matDatepicker]="picker"
+              [(ngModel)]="selectHoliday.startDate" #startDate="ngModel" (click)="picker.open()" required>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <div *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)" class="alert alert-danger">
+              <div *ngIf="startDate.errors?.['required']">Start Date is required.</div>
+            </div>
+        </li>
+        <li>
+            <div class="form-group">
+              <label class="required">End Date</label>
+              <input  class="form-control" placeholder="DD-MM-YYYY" name="endtime"  matInput [matDatepicker]="picker1"
+              [(ngModel)]="selectHoliday.endDate" #enddate="ngModel"  (click)="picker1.open()" required>
+              <mat-datepicker #picker1></mat-datepicker>
+            </div>
+            <div *ngIf="enddate.invalid && (enddate.dirty || enddate.touched)" class="alert alert-danger">
+              <div *ngIf="enddate.errors?.['required']">End Date is required.</div>
+            </div>
+        </li>
+      <li>
+        <div class="form-group">
+          <label class="required">Holiday Type</label>
+          <select class="form-control"  name="holiday" required [(ngModel)]="selectHoliday.holidayType" #holidayType="ngModel">
+              <option value="">Select Holiday Type</option>
+              <option value="Public Holiday">Public HoliDay</option> 
+              <option value="Holiday By School">Holiday By school</option>>
+          </select>
+      </div> 
+      <div *ngIf="holidayType.invalid && (holidayType.dirty || holidayType.touched)" class="alert alert-danger">
+      <div *ngIf="holidayType.errors?.['required']">HolidayType is required.</div>
+      </div>
+      </li>
+      <li>
+        <div class="form-group">
+          <label class="required">HoliDay Details</label>
+          <input type="text" class="form-control" placeholder="Holiday Details" 
+          [(ngModel)]="selectHoliday.holidayDetails" #holidaydetail="ngModel" required pattern="[A-Za-z ]+">
+        </div>
+        <div *ngIf="holidaydetail.invalid && (holidaydetail.dirty || holidaydetail.touched)" class="alert alert-danger">
+          <div *ngIf="holidaydetail.errors?.['required']">Holidaydetail is required.</div>
+          <div *ngIf="holidaydetail.errors?.['pattern']">Holidaydetail should be In Character.</div>
+          </div>
+    </li>          
+    </ul>
+        <div class="form-group text-center"> 
+          <button class="btn bluebtn" (click)="updateHoliday()" [disabled]="!holidayForm.form.valid">Update</button>
+          <button class="btn"  (click)="naviReturnHoliday()">Cancel</button>
+       </div>
+      </div>
+    </form>
+    </div>
+  
+  

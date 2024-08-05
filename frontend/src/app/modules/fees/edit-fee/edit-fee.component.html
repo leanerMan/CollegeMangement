@@ -1,0 +1,209 @@
+<div class="white-box">
+    <div class="titles" data-aos="fade-up" data-aos-duration="1000">Add Fee</div> 
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    <div class="formsec">
+          <ul class="list3"> 
+            <li>
+                <div class="form-group">
+                    <label class="required">Roll Number</label>
+                    <input type="text" class="form-control" placeholder="Enter roll here" 
+                           required 
+                           pattern="[a-zA-Z0-9 ]*"
+                           [(ngModel)]="fee.rollNo" 
+                           name="firstName" 
+                           #rollNo="ngModel" />
+                           <div *ngIf="rollNo.invalid && (rollNo.dirty || rollNo.touched)" class="alert alert-danger">
+                            <div *ngIf="rollNo.errors?.['required']">rollNo is required.</div>
+                            <div *ngIf="rollNo.errors?.['pattern']">Enter valid roll number</div>
+                          </div>
+                </div>
+            </li>
+            
+            
+            
+            <li>
+                <div class="form-group">
+                  <label class="required">Student Name</label>
+                  <input type="text" class="form-control" placeholder="Student Name"
+                   required
+                   pattern="[a-zA-Z ]*"
+                   [(ngModel)]="fee.studentName"  
+                   #studentName="ngModel"
+                   name="studentName"/>
+                   <div *ngIf="studentName.invalid && (studentName.dirty || studentName.touched)" class="alert alert-danger">
+                    <div *ngIf="studentName.errors?.['required']">student Name is required.</div>
+                    <div *ngIf="studentName.errors?.['pattern']">Enter valid name.</div>
+                  </div>
+                </div>
+                
+            </li>
+     
+            <li>
+              <div class="form-group">
+                  <label class="required">Departments</label>
+                  <select class="form-control" [(ngModel)]="fee.departmentName"
+                   required
+                   #departmentName="ngModel" 
+                   name="departmentName">
+                      <option value="">Select Departments</option>
+                      <option value="Science">Science</option> 
+                      <option value="English">English</option>
+                      <option value="Math">Math</option>
+                  </select>
+                  <div *ngIf="departmentName.invalid && (departmentName.dirty || departmentName.touched)" class="alert alert-danger">
+                    <div *ngIf="departmentName.errors?.['required']">departments is required.</div>
+                   
+                  </div>
+              </div>
+          </li>
+
+          <li>
+            <div class="form-group">
+                <label class="required">Fees Type</label>
+                <select class="form-control" [(ngModel)]="fee.feesType"
+                 required
+                 #feesType="ngModel" 
+                 name="feesType">
+                    <option value="">Select Fees</option>
+                    <option value="Annual">Annual</option> 
+                    <option value="Tuition">Tuition</option>
+                    <option value="Transposrt">Transposrt</option>
+                    <option value="Exam">Exam</option>
+                    <option value="Library">Library</option>
+                    <option value="Other">Other</option>
+                </select>
+                <div *ngIf="feesType.invalid && (feesType.dirty || feesType.touched)" class="alert alert-danger">
+                  <div *ngIf="feesType.errors?.['required']">Fees Type is required.</div>
+                 
+                </div>
+            </div>
+        </li>
+          
+          <li>
+            <div class="form-group">
+              <label class="required">Duration</label><br>
+              <mat-radio-group aria-label="Select an option" [(ngModel)]="fee.duration"  name="duration" required>
+                <mat-radio-button value="Month">Month</mat-radio-button>
+                <mat-radio-button value="Yearly">Yearly</mat-radio-button>
+                <mat-radio-button value="Session">Session</mat-radio-button>
+              </mat-radio-group>
+            </div>
+        </li>
+        <li>
+            <div class="form-group">
+                <label class="required">Collection Date</label>
+                <input type="text" class="form-control" placeholder="collection Date"
+                 [(ngModel)]="fee.collectionDate"
+                 required
+                
+                 #collectionDate="ngModel" 
+                  name="collectionDate" />
+                  <div *ngIf="collectionDate.invalid && (collectionDate.dirty || collectionDate.touched)" class="alert alert-danger">
+                    <div *ngIf="collectionDate.errors?.['required']">collection Date is required.</div>
+                   
+                  </div>
+            </div>
+        </li>
+        <li>
+          <div class="form-group">
+              <label class="required">Payment Type</label>
+              <select class="form-control" [(ngModel)]="fee.paymentType"
+               required
+               #paymentType="ngModel" 
+               name="paymentType">
+                  <option value="">Select Fees</option>
+                  <option value="Annual">Annual</option> 
+                  <option value="Tuition">Tuition</option>
+                  <option value="Transposrt">Transposrt</option>
+                  <option value="Exam">Exam</option>
+                  <option value="Library">Library</option>
+                  <option value="Other">Other</option>
+              </select>
+              <div *ngIf="paymentType.invalid && (paymentType.dirty || paymentType.touched)" class="alert alert-danger">
+                <div *ngIf="paymentType.errors?.['required']">Payment Type is required.</div>
+               
+              </div>
+          </div>
+      </li>
+      <li>
+        <div class="form-group">
+          <label class="required">Invoice Number</label>
+          <input type="text" class="form-control" placeholder="Student Name"
+           required
+           pattern="[a-zA-Z0-9 ]*"
+           [(ngModel)]="fee.invoiceNumber"  
+           #invoiceNumber="ngModel"
+           name="invoiceNumber"/>
+           <div *ngIf="invoiceNumber.invalid && (invoiceNumber.dirty || invoiceNumber.touched)" class="alert alert-danger">
+            <div *ngIf="invoiceNumber.errors?.['required']">invoice Number is required.</div>
+            <div *ngIf="invoiceNumber.errors?.['pattern']">Enter valid invoice number.</div>
+          </div>
+        </div>
+        
+    </li>
+    <li>
+      <div class="form-group">
+          <label class="required">Status</label>
+          <select class="form-control" [(ngModel)]="fee.status"
+           required
+           #status="ngModel" 
+           name="status">
+              <option value="">Select status</option>
+              <option value="Annual">Paid</option> 
+              <option value="Unpaid">Unpaid</option>
+              <option value="Pending">Pending</option>
+          </select>
+          <div *ngIf="status.invalid && (status.dirty || status.touched)" class="alert alert-danger">
+            <div *ngIf="status.errors?.['required']">status is required.</div>
+           
+          </div>
+      </div>
+  </li>
+     
+    <li class="lfull">
+      <div class="form-group">
+        <label class="required">Amount</label>
+        <input type="text" class="form-control" [placeholder]="fee.amount !== -1 ? '' : 'Enter Amount'"
+         required
+         pattern="[0-9]*"
+         [(ngModel)]="fee.amount"  
+         #amount="ngModel"
+         name="amount"/>
+         <div *ngIf="amount.invalid && (amount.dirty || amount.touched)" class="alert alert-danger">
+          <div *ngIf="amount.errors?.['required']">amount is required.</div>
+          <div *ngIf="amount.errors?.['pattern']">Enter valid amount.</div>
+        </div>
+      </div>
+  </li> 
+  
+  
+  <li class="lfull">
+    <div class="form-group">
+      <label>Details</label>
+      <input type="text" class="form-control" placeholder="Details"
+       
+       pattern="[a-zA-Z ]*"
+       [(ngModel)]="fee.details"  
+       #details="ngModel"
+       name="details"/>
+       <div *ngIf="details.invalid && (details.dirty || details.touched)" class="alert alert-danger">
+        <div *ngIf="details.errors?.['required']">Detail is required.</div>
+        <div *ngIf="details.errors?.['pattern']">Enter character only.</div>
+      </div>
+    </div>
+    
+</li>
+
+<li>
+  <div class="form-group"> 
+      <button type="submit" class="btn bluebtn" style="margin-right: 5px;" >Submit</button>
+      <button type="button" class="btn" (click)="close()">Cancel</button>
+  </div>
+</li>
+
+            
+        </ul>
+      </div>
+    </form>
+    </div>  
+

@@ -1,0 +1,175 @@
+<!-- <app-breadcrumb></app-breadcrumb> -->
+
+<div class="white-box">
+  <div class="titles aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">Dashboard</div>
+  <ul class="list4">
+    <li>
+      <a href="#" class="boxs aos-init aos-animate" style="background: #eef0f8;" data-aos="fade-in"
+        data-aos-duration="500" data-aos-delay="200" data-aos-easing="ease-in-back" data-aos-offset="0">
+
+        <div class="iconwith">
+          <div class="icons"><img src="../../../assets/images/students.png" alt="student"></div>
+          <div class="tbpad">
+            <div class="stitle">New Students</div>
+            <div class="heading2">546</div>
+          </div>
+        </div>
+        <div class="text">10% Higher Then Last Month</div>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="boxs aos-init aos-animate" style="background: #f8f0e7;" data-aos="fade-in"
+        data-aos-duration="500" data-aos-delay="200" data-aos-easing="ease-in-back" data-aos-offset="0">
+        <div class="iconwith">
+          <div class="icons"><img src="../../../assets/images/img2.png" alt="education"></div>
+          <div class="tbpad">
+            <div class="stitle">Total Courses</div>
+            <div class="heading2">213</div>
+          </div>
+        </div>
+        <div class="text">07% Less Then Last Year</div>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="boxs aos-init aos-animate" style="background: #f9e8e8;" data-aos="fade-in"
+        data-aos-duration="500" data-aos-delay="200" data-aos-easing="ease-in-back" data-aos-offset="0">
+        <div class="iconwith">
+          <div class="icons"><img src="../../../assets/images/img3.png" alt="teacher"></div>
+          <div class="tbpad">
+            <div class="stitle">Total Teachers</div>
+            <div class="heading2">75</div>
+          </div>
+        </div>
+        <div class="text">12% Higher Then Last Month</div>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="boxs aos-init aos-animate" style="background: #e6f2e2;" data-aos="fade-in"
+        data-aos-duration="500" data-aos-delay="200" data-aos-easing="ease-in-back" data-aos-offset="0">
+        <div class="iconwith">
+          <div class="icons"><img src="../../../assets/images/fee.png" alt="fees"></div>
+          <div class="tbpad">
+            <div class="stitle">Fees Collection</div>
+            <div class="heading2">75</div>
+          </div>
+        </div>
+        <div class="text">12% Higher Then Last Month</div>
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="listsec">
+  <ul>
+    <li>
+      <style>
+        #chartdiv {
+          height: 400px;
+        }
+      </style>
+      <div class="white-box">
+        <div class="titles aos-init" data-aos="fade-up" data-aos-duration="1000">Students Survay</div>
+        <!-- <div class="titles" data-aos="fade-up" data-aos-duration="1000">Student Performance Chart</div> -->
+        <div id="chartdiv">
+          <div style="position: relative; width: 100%; height: 100%;">
+            <div aria-hidden="true" style="position: absolute; width: 561px; height: 400px;">
+              <div><canvas class="am5-layer-0" width="561" height="400"
+                  style="position: absolute; top: 0px; left: 0px; width: 561px; height: 400px;"></canvas><canvas
+                  class="am5-layer-30" width="561" height="400"
+                  style="position: absolute; top: 0px; left: 0px; width: 561px; height: 400px;"></canvas></div>
+            </div>
+            <div class="am5-html-container"
+              style="position: absolute; pointer-events: none; overflow: hidden; width: 561px; height: 400px;">
+            </div>
+            <div class="am5-reader-container" role="alert"
+              style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">
+            </div>
+            <div class="am5-focus-container" role="graphics-document"
+              style="position: absolute; pointer-events: none; top: 0px; left: 0px; overflow: hidden; width: 561px; height: 400px;">
+              <div tabindex="0" role="checkbox" aria-label="New Students; Press ENTER to toggle"
+                aria-checked="true"
+                style="position: absolute; pointer-events: none; top: -2px; left: -2px; width: 4px; height: 4px;">
+              </div>
+              <div tabindex="0" role="checkbox" aria-label="Old Students; Press ENTER to toggle"
+                aria-checked="true"
+                style="position: absolute; pointer-events: none; top: -2px; left: -2px; width: 4px; height: 4px;">
+              </div>
+            </div>
+            <div class="am5-tooltip-container"></div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="white-box">
+        <div class="titles">Teacher List</div>
+        <div class="tablesec">
+          <table class="table ">
+            <thead>
+              <tr>
+                <th width="50">Image</th>
+                <th>Teacher Name</th>
+                <th width="100">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="../../../assets/images/user3.jpg" alt="teacher" height="30"></td>
+                <td>Joseph Tylor <br><small>(M.Sc., PHD.)</small></td>
+                <td>
+                  <button class="btn deletebtn" data-toggle="modal" data-target="#modalcompanystructure"
+                    data-backdrop="static" data-keyboard="false" data-placement="top" title=""
+                    data-original-title="Absend">Absent</button>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="../../../assets/images/user5.jpg" alt="teacher" height="30"></td>
+                <td>Joseph Tylor <br><small>(M.Sc., PHD.)</small></td>
+                <td>
+                  <button class="btn viewbtn" data-toggle="modal" data-target="#modalcompanystructure"
+                    data-backdrop="static" data-keyboard="false" data-placement="top" title=""
+                    data-original-title="Available">Available</button>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="../../../assets/images/user3.jpg" alt="teacher" height="30"></td>
+                <td>Joseph Tylor <br><small>(M.Sc., PHD.)</small></td>
+                <td>
+                  <button class="btn deletebtn" data-toggle="modal" data-target="#modalcompanystructure"
+                    data-backdrop="static" data-keyboard="false" data-placement="top" title=""
+                    data-original-title="Absend">Absent</button>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="../../../assets/images/user3.jpg" alt="teacher" height="30"></td>
+                <td>Joseph Tylor <br><small>(M.Sc., PHD.)</small></td>
+                <td>
+                  <button class="btn deletebtn" data-toggle="modal" data-target="#modalcompanystructure"
+                    data-backdrop="static" data-keyboard="false" data-placement="top" title=""
+                    data-original-title="Absend">Absend</button>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="../../../assets/images/user5.jpg" alt="teacher" height="30"></td>
+                <td>Joseph Tylor <br><small>(M.Sc., PHD.)</small></td>
+                <td>
+                  <button class="btn viewbtn" data-toggle="modal" data-target="#modalcompanystructure"
+                    data-backdrop="static" data-keyboard="false" data-placement="top" title=""
+                    data-original-title="Available">Available</button>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="../../../assets/images/user3.jpg" alt="teacher" height="30"></td>
+                <td>Joseph Tylor <br><small>(M.Sc., PHD.)</small></td>
+                <td>
+                  <button class="btn deletebtn" data-toggle="modal" data-target="#modalcompanystructure"
+                    data-backdrop="static" data-keyboard="false" data-placement="top" title=""
+                    data-original-title="Absend">Absent</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

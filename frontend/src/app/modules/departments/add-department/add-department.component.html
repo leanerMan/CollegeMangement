@@ -1,0 +1,65 @@
+  <div class="white-box">
+      <div class="titles" data-aos="fade-up" data-aos-duration="1000">Add Department</div> 
+      <div class="formsec">
+        <form #myFormD="ngForm" (ngSubmit)="saveDepartment()">
+
+              <ul class="list3"> 
+                  <li>
+                      <div class="form-group">
+                          <label class="required">Department</label>
+                          <select class="form-control" name="department" [(ngModel)]="department.department" required>
+                              <option value="" disabled>Select Department</option>
+                              <option value="Science">Science</option> 
+                              <option value="English">English</option>
+                              <option value="Math">Math</option>
+                          </select>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="form-group">
+                          <label class="required">Head Of Department</label>
+                          <input type="text" class="form-control" name="headOfDepartment" [(ngModel)]="department.headOfDepartment" required />
+                      </div>
+                  </li>
+                  <li>
+                      <div class="form-group">
+                          <label class="required">Phone</label>
+                          <input type="text" class="form-control" name="phone" [(ngModel)]="department.phone" />
+                      </div>
+                  </li>
+                  <li>
+                      <div class="form-group">
+                          <label class="required">Email</label>
+                          <input type="email" class="form-control" name="email" [(ngModel)]="department.email" required />
+                      </div>
+                  </li>
+                  <li>
+                      <div class="form-group">
+                          <label class="required">Department Start Date</label>
+                          <input class="datepicker form-control" placeholder="DD-MM-YYYY" required matInput [matDatepicker]="picker"
+                          (click)="picker.open()" [(ngModel)]="department.departmentStartDate" name="joiningDate" #departmentStartDate="ngModel">
+                        <mat-datepicker #picker></mat-datepicker>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="form-group">
+                          <label class="required">Student Capacity</label>
+                          <input type="text" class="form-control" name="studentCapacity" [(ngModel)]="department.studentCapacity" />
+                      </div>
+                  </li>
+                  <li class="lfull">
+                      <div class="form-group">
+                          <label class="required">Details</label>
+                          <textarea class="form-control" name="details" [(ngModel)]="department.details"></textarea>
+                      </div>
+                  </li> 
+                  <li>
+                    <div class="form-group"> 
+                      <button class="btn bluebtn">Submit</button>
+                      <button type="button" class="btn" (click)="cancel()">Cancel</button>
+                    </div>
+                </li>
+            </ul>
+        </form>
+     </div>
+  </div>  

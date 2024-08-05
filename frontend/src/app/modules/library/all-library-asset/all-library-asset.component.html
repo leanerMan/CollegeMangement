@@ -1,0 +1,44 @@
+
+      <div class="white-box">
+      <div class="titles" data-aos="fade-up" data-aos-duration="1000">All Library Assets</div> 
+      <div class="tabletop fcs">
+        <div><button class="btn bluebtn" data-toggle="modal" data-target="#modalcompanystructure" data-backdrop="static" data-keyboard="false">+ Add Student</button></div>
+        <div class="searchfield"><input class="form-control" type="text" value="" placeholder="Search" /></div>
+      </div>
+      <div class="tablesec">
+        <table class="table ">
+          <thead> 
+            <tr> 
+              <th><input type="checkbox" /></th>
+              <th>Bill No</th>
+              <th>Title</th>
+              <th>Subject</th>
+              <th>Purchase Date</th>
+              <th>Department</th>
+              <th>Type</th>
+              <th>Status</th> 
+              <th width="100">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (data of libraries; track $index) {
+            <tr > 
+              <td><input type="checkbox" /></td> 
+              <td>{{data.billNo}}</td>
+              <td>{{data.title}}</td>
+              <td>{{data.subject}}</td>
+              <td>{{data.purchaseDate}}</td>
+              <td>{{data.department}}</td> 
+              <td>{{data.assetType}}</td>
+              <td><span class="btn deletebtn">{{data.status}}</span></td>  
+              <td>
+                 <button class="btn editbtn" (click)="editlibrary(data)"><i class="fa fa-pencil"></i></button> 
+                 <button class="btn viewbtn" (click)="aboutlibrary(data)"><i class="fa fa-eye"></i></button> 
+                 <button class="btn deletebtn" (click)="deletelibrary(data.id)"><i class="fa fa-trash"></i></button> 
+              </td> 
+            </tr>
+        }
+          </tbody>
+        </table>
+      </div>
+      </div>  

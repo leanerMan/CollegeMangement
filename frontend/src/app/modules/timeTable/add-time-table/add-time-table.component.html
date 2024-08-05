@@ -1,0 +1,109 @@
+<div class="breadcrumbsec">
+  <ul>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a>Time Table</a></li>
+    <li>Add Time Table</li>
+  </ul>
+</div>
+<div class="white-box">
+  
+  <div class="titles aos-init aos-animate" data-aos="fade-up"  data-aos-duration="1000">Add Time Table</div> 
+  <form #timetableForm="ngForm" (ngSubmit)="saveTimeTable()">
+  <div class="formsec">
+        <ul class="list3"> 
+          <li>
+              <div class="form-group">
+                <label class="required">Teacher</label>
+                <input type="text" class="form-control" placeholder="Teacher" required
+                maxlength="30" [(ngModel)]="timetable.teacher"  pattern="[A-Za-z ]+" #teacher="ngModel" name="teacher" >
+              </div>
+              <div *ngIf="teacher.invalid && (teacher.dirty || teacher.touched)" class="alert alert-danger">
+              <div *ngIf="teacher.errors?.['required']">Teacher is required.</div>
+              <div *ngIf="teacher.errors?.['pattern']">Teacher should be In Character.</div>
+            </div>
+          </li>
+          <li>
+              <div class="form-group">
+                <label class="required">Subject</label>
+                <input type="text" class="form-control" [(ngModel)]="timetable.subject" required maxlength="30" #subject="ngModel" name="subject" pattern="[A-Za-z ]+" placeholder="Subject">
+              </div>
+              <div *ngIf="subject.invalid && (subject.dirty || subject.touched)" class="alert alert-danger">
+                <div *ngIf="subject.errors?.['required']">subject is required.</div>
+                <div *ngIf="subject.errors?.['pattern']">Subject should be In Character.</div>
+              </div>
+          </li> 
+             <li>
+                <div class="form-group">
+                    <label class="required">Semester</label>
+                    <select class="form-control" [(ngModel)]="timetable.semester" required maxlength="10" name="semester" #semester="ngModel" >
+                        <option value="">Select Semester</option>
+                        <option value="I">I</option> 
+                        <option value="II">II</option>
+                        <option value="III">III</option>
+                        <option value="IV">IV</option>
+                        <option value="V">V</option>
+                        <option value="VI">VI</option>
+                    </select>
+                </div>
+                <div *ngIf="semester.invalid && (semester.dirty || semester.touched)" class="alert alert-danger">
+                  <div *ngIf="semester.errors?.['required']">Semester is required.</div>
+                </div>
+            </li> 
+          <li>
+              <div class="form-group">
+                <label class="required">Room No.</label>
+                <input type="text" class="form-control" placeholder="Room No." pattern="[A-Za-z0-9]+" required maxlength="10" name="roomno" #roomno="ngModel" [(ngModel)]="timetable.roomNo">
+              </div>
+              <div *ngIf="roomno.invalid && (roomno.dirty || roomno.touched)" class="alert alert-danger">
+                <div *ngIf="roomno.errors?.['required']">Room No is required.</div>
+                <div *ngIf="roomno.errors?.['pattern']">Room No. should be In AlphaNumeric.</div>
+              </div>
+          </li>
+          <!-- <li>
+            <div class="form-group">
+              <label class="required">Date</label>
+              <input type="text" class="form-control" placeholder="Date"  required name="date" #date="ngModel" [(ngModel)]="timetable.date">
+            </div>
+            <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+              <div *ngIf="date.errors?.['required']">Date is required.</div>
+            </div>
+        </li> -->
+           <li>
+            <div class="form-group">
+              <label class="required">Date</label>
+              <input class="datepicker form-control" placeholder="DD-MM-YYYY" required matInput [matDatepicker]="picker"
+                (click)="picker.open()" [(ngModel)]="timetable.date" name="date" required #date="ngModel">
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+              <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+                <div *ngIf="date.errors?.['required']">Date is required.</div>
+              </div>
+          </li> 
+          <li>
+              <div class="form-group">
+                <label class="required">Start Time</label>
+                <input type="time" class="datepicker form-control" name="starttime" placeholder="Start Time" #starttime="ngModel" required [(ngModel)]="timetable.startTime">
+              </div>
+              <div *ngIf="starttime.invalid && (starttime.dirty || starttime.touched)" class="alert alert-danger">
+                <div *ngIf="starttime.errors?.['required']">Start Time is required.</div>
+              </div>
+          </li>
+          <li>
+              <div class="form-group">
+                <label class="required">End Time</label>
+                <input type="time" class="form-control" placeholder="End Time" name="endtime"  required #endtime="ngModel" [(ngModel)]="timetable.endTime">
+              </div>
+              <div *ngIf="endtime.invalid && (endtime.dirty || endtime.touched)" class="alert alert-danger">
+                <div *ngIf="endtime.errors?.['required']">End Time is required.</div>
+              </div>
+          </li>        
+      </ul>
+      <div class="form-group text-center"> 
+        <button class="btn bluebtn"  [disabled]="!timetableForm.form.valid" >Submit</button>
+        <button class="btn" (click)="ResetForm()" >Reset</button>
+     </div>
+
+    </div>
+   </form> 
+  </div>
+

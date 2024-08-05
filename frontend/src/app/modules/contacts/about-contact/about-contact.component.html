@@ -1,0 +1,79 @@
+<div class="titles" data-aos="fade-up" data-aos-duration="1000">contact Profile</div> 
+
+
+@if (selectedcontact) {
+  <div class="flexspace"> 
+    <div class="leftimg">
+      <div class="white-box studentimgbg">
+         <div class="profileimg">
+            <img alt="student" id="blah" src="https://cargofile.s3.ap-south-1.amazonaws.com/contacts/{{selectedcontact.contactImageName}} " alt="image"> 
+        </div>
+       
+     
+        <div class="stdetail">
+          <h3>{{selectedcontact.name}}</h3>
+          <ul>
+            <!-- <li>
+              <div>
+                <label>Gender</label>
+                <div>{{selectedcontact.gender}}</div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <label>Degree</label>
+                <div>{{selectedcontact.education}}</div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <label>Designation</label>
+                <div>{{selectedcontact.designation}}</div>
+              </div>
+            </li> -->
+           
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="rightcont"> 
+    <div class="white-box basicinfo">
+      <div class="heading3"><span>Contact Information</span></div> 
+      <ul>
+        <li>
+          <div>
+            <label>Email Address</label>
+            <div>{{selectedcontact.email}}</div>
+          </div>
+        </li> 
+        <li>
+          <div>
+            <label>Phone Number</label>
+            <div>{{selectedcontact.mobile}}</div>
+          </div>
+        </li> 
+        <li>
+          <div>
+            <label>Location</label>
+            <div>{{selectedcontact.address}}</div>
+          </div>
+        </li>   
+      </ul>
+    </div>
+
+    <div class="white-box basicinfo">
+      <div class="heading3">About contact</div> 
+      <p>Completed my graduation in Arts from the well known and renowned institution of India – SARDAR PATEL ARTS COLLEGE, BARODA in 2000-01, which was affiliated to M.S. University. I ranker in University exams from the same university from 1996-01.</p>
+      <p>Worked as Professor and Head of the department at Sarda Collage, Rajkot, Gujarat from 2003-2015</p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+      <h3>Education</h3>
+      <p>B.A.,Gujarat University, Ahmedabad,India.</p>
+      <p>M.A.,Gujarat University, Ahmedabad, India.</p>
+      <p>P.H.D., Shaurashtra University, Rajkot</p>
+    </div>
+  
+  </div>
+</div> 
+}

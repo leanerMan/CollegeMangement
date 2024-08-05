@@ -1,0 +1,73 @@
+@if (selectedCourse) {
+  <div class="white-box">
+    <div class="titles" data-aos="fade-up" data-aos-duration="1000">Edit Course</div>
+    <form (ngSubmit)="updateCourse()">
+      <div class="formsec">
+  
+        <ul class="list3">
+          <li>
+            <div class="form-group">
+              <label class="required">Course Name</label>
+              <input type="text" class="form-control" placeholder="Course Name" name="courseName"
+                [(ngModel)]="selectedCourse.courseName" required />
+            </div>
+          </li>
+  
+          <li>
+            <div class="form-group">
+              <label>Course Code</label>
+              <input type="text" class="form-control" placeholder="Course Code" name="courseCode"
+                [(ngModel)]="selectedCourse.courseCode" />
+            </div>
+          </li>
+          <li>
+            <div class="form-group">
+              <label>Course Time Length</label>
+              <input type="text" class="form-control" placeholder="Course Time Length" name="courseTimeLength"
+                [(ngModel)]="selectedCourse.courseTimeLength" />
+            </div>
+          </li>
+          <li>
+            <div class="form-group">
+              <label>Start Date</label>
+  
+                <input class="datepicker form-control" placeholder="DD-MM-YYYY" required matInput [matDatepicker]="picker"
+                (click)="picker.open()" [(ngModel)]="selectedCourse.startDate" name="startDate" #startDate="ngModel">
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+          </li>
+          <li>
+            <div class="form-group">
+              <label>Professor Name</label>
+              <input type="text" class="form-control" class="form-control" name="professorName"
+                [(ngModel)]="selectedCourse.professorName" />
+              <!-- <option *ngFor="let professor of professors" [value]="professor">{{ professor }}</option> -->
+            </div>
+          </li>
+          <li>
+            <div class="form-group">
+              <label>Contact Number</label>
+              <input type="text" class="form-control" placeholder="Contact Number" name="contactNumber"
+                [(ngModel)]="selectedCourse.contactNumber" />
+            </div>
+          </li>
+          <li>
+            <div class="form-group">
+              <label class="required">Course Details</label>
+              <textarea class="form-control" name="courseDetails" [(ngModel)]="selectedCourse.courseDetails"></textarea>
+            </div>
+          </li>
+  
+          <li>
+            <div class="form-group">
+              <button class="btn bluebtn">Submit</button>
+              <button type="button" class="btn" (click)="cancel()">Cancel</button>
+            </div>
+          </li>
+  
+        </ul>
+  
+      </div>
+    </form>
+  </div>
+}

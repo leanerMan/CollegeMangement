@@ -1,0 +1,46 @@
+
+    <div class="white-box">
+    <div class="titles" data-aos="fade-up" data-aos-duration="1000">All Departments</div> 
+    <div class="tabletop fcs">
+      <div><button class="btn bluebtn" data-toggle="modal" data-target="#modalcompanystructure" data-backdrop="static" (click)="addDept()" data-keyboard="false">+ Add Department</button></div>
+      <div class="searchfield"><input class="form-control" type="text" value="" placeholder="Search" /></div>
+    </div>
+    <div class="tablesec">
+      <table class="table ">
+        <thead> 
+          <tr>  
+
+            <th><input type="checkbox" /></th>
+            <th>Department Name</th>
+            <th>Head Of Department</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Start Year</th>
+            <th>Students Capacity</th> 
+            <th>Details</th> 
+            <th width="100">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of department; track $index) {
+            <tr> 
+              <td><input type="checkbox"></td>
+              <td>{{item.department}}</td>
+              <td>{{item.headOfDepartment}} </td>
+              <td>{{item.phone}}</td>
+              <td>{{item.email}}</td>
+              <td>{{item.departmentStartDate | date:'dd-MM-yyyy'}}</td> 
+              <td>{{item.studentCapacity}}</td>
+              <td>{{item.details}}</td>
+              <td>
+                 <button class="btn editbtn"  (click)="editDepartment(item)"><i class="fa fa-pencil"></i></button> 
+                  
+                 <button class="btn deletebtn" (click)="removeDepartment(item.id)"><i class="fa fa-trash"></i></button> 
+              </td> 
+            </tr>
+          }          
+        </tbody>
+      </table>
+    </div>
+    </div>  
+  

@@ -1,0 +1,137 @@
+
+@if (selectedcontact) {
+    <div class="breadcrumbsec">
+        <ul>
+          <li><a routerLink="dashboard">Dashboard</a></li>
+          <li><a>contacts</a></li>
+          <li>Edit contact</li>
+        </ul>
+      </div>
+      <div class="white-box">
+      <div class="titles" data-aos="fade-up" data-aos-duration="1000">Edit contact</div> 
+      <form #contactForm="ngForm" (ngSubmit)="savecontact()">
+        <div class="flexspace">
+        <div class="formsec formleft">
+          <ul class="list3">
+            <li>
+              <div class="form-group">
+                <label class="required">Name</label>
+                <input type="text" class="form-control" placeholder="Full Name" required maxlength="30"
+                  [(ngModel)]="selectedcontact.name" name="name" #name="ngModel" pattern="[A-Za-z ]+">
+                @if ((name.dirty || name.touched)){            
+                @if (name.hasError('required')) {
+                  <div class="msg">name is required</div>
+                 }
+                 @if (name.hasError('pattern')) {
+                  <div class="msg">Please enter Alphabetically</div>
+                 }
+                }
+              </div>
+            </li>
+            
+            <li>
+              <div class="form-group">
+                <label class="required">Mobile</label>
+                <input type="text" class="form-control" placeholder="Mobile" [(ngModel)]="selectedcontact.mobile" name="mobile"
+                       maxlength="10" required #mobile="ngModel" pattern="[0-9]{10}">
+              </div>
+              @if (mobile.invalid && (mobile.dirty || mobile.touched)) {
+                <div  class="text-danger">
+                @if (mobile.hasError('required')) {
+                  <div class="msg">Mobile is required</div>
+                }
+                @if (mobile.hasError('pattern')) {
+                  <div class="msg">Please enter a 10-digit mobile number</div>
+                }
+               
+              </div>
+            }
+            </li>
+            <li>
+              <div class="form-group">
+                <label class="required">address</label>
+                <input type="text" class="form-control" placeholder="address" pattern="[A-Za-z ]+" maxlength="20" [(ngModel)]="selectedcontact.address"
+                  name="address" #address="ngModel" required>
+              </div>
+              @if ((address.dirty || address.touched)){
+                @if (address.hasError('required')) {
+                  <div class="msg">address is required</div>
+                 }
+                 @if (address.hasError('pattern')) {
+                  <div class="msg">Please enter Alphabeticlly</div>
+                 }
+              
+                }
+            </li>
+          
+            <li>
+              <div class="form-group">
+                <label class="required">Email</label>
+                <input type="email" class="form-control" placeholder="test@gmail.com" email required [(ngModel)]="selectedcontact.email"
+                  name="email" #email="ngModel">
+              </div>
+              @if (email.dirty || email.touched ){
+               
+                @if (email.hasError('required')) { <div class="msg">Email is required</div>}
+                @if (email.hasError('email')) { <div class="msg">Please provide valid email</div>}
+                }
+            </li>
+            <li>
+              <div class="form-group">
+                <label class="required">Birth Date</label>
+                <input class="datepicker form-control" placeholder="DD/MM/YYYY" required matInput [matDatepicker]="picker"
+                  (click)="picker.open()" [(ngModel)]="selectedcontact.birthDate" name="birthDate" required #birthDate="ngModel">
+                <mat-datepicker #picker></mat-datepicker>
+              </div>
+              @if ((birthDate.dirty || birthDate.touched) && birthDate.hasError('required') ){
+                <div class="msg">birthDate is required</div>
+                }
+            </li>
+            <!-- <li>
+              <div class="form-group">
+                <label class="required">Upload</label>
+                <input type="file" accept="image/*" class="form-control" (change)="onFileSelected($event)" name="upload">
+              </div>
+            </li> -->
+            <li class="lfull">
+              <div class="form-group">
+                <label class="required">Address</label>
+                <input type="text" class="form-control" placeholder="Address" required=""  name="address" #address="ngModel" [(ngModel)]="selectedcontact.address" maxlength="50"
+                  name="address">
+              </div>
+          
+            </li>
+            <li class="lfull">
+              <div class="form-group">
+                <label class="required">note</label>
+                <input type="text" class="form-control" placeholder="Write text..." required  name="note" #note="ngModel" [(ngModel)]="selectedcontact.note" maxlength="30"
+                  name="note">
+              </div>
+             
+            </li>
+          </ul>
+        </div>
+    
+        <div class="formright">
+          <div class="uploadimg">
+            <span [className]="imageUploaded==true?'image-uploaded btn_upload':'btn_upload'">
+              <input type="file" id="imag" title="" (change)="onFileChange($event)" class="input-img"/>
+              <span>Click to Upload Photo</span>
+            </span>
+            <img id="ImgPreview" [src]="imageSrc" class="preview1" />
+            <button type="button" id="removeImage1" (click)="removeImage()"  [className]="imageUploaded==true?'rmv btn-rmv1':'btn-rmv1'"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+        <div class="form-group text-center ">
+          <button class="btn bluebtn" [disabled]="!contactForm.valid" type="submit">Submit</button>
+          <button class="btn bluebtn cancel-btn" type="reset">Cancel</button>
+        </div>
+      </form>
+        
+      </div>  
+  
+}

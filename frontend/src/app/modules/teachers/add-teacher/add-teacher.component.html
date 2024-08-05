@@ -1,0 +1,173 @@
+<!-- <div class="breadcrumbsec">
+  <ul>
+    <li><a routerLink="admin">Dashboard</a></li>
+    <li><a routerLink="admin/teachers">Teachers</a></li>
+    <li>Add Teacher</li>
+  </ul>
+</div> -->
+<!-- <app-breadcrumb></app-breadcrumb> -->
+<div class="white-box">
+  <div class="titles aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">Add Teacher</div>
+  <form #teacherForm="ngForm" (ngSubmit)="saveTeacher()">
+    <div class="flexspace">
+    <div class="formsec formleft">
+      <ul class="list3">
+        <li>
+          <div class="form-group">
+            <label class="required">First Name</label>
+            <input type="text" class="form-control" placeholder="First Name" required maxlength="30"
+              [(ngModel)]="teacher.firstName" name="firstName" #firstName="ngModel" pattern="[A-Za-z ]+">
+            @if ((firstName.dirty || firstName.touched)){            
+            @if (firstName.hasError('required')) {
+              <div class="msg">FirstName is required</div>
+             }
+             @if (firstName.hasError('pattern')) {
+              <div class="msg">Please enter Alphabeticlly</div>
+             }
+            }
+          </div>
+        </li>
+        <li>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" placeholder="Last Name" name="lastName" #lastName="ngModel" pattern="[A-Za-z ]+" [(ngModel)]="teacher.lastName" maxlength="30"
+              name="lastName">
+          </div>
+          @if (lastName.hasError('pattern')) {
+            <div class="msg">Please enter Alphabeticlly</div>
+           }
+        </li>
+        <li>
+          <div class="form-group">
+            <label class="required">Gender</label>
+            <select class="form-control" [(ngModel)]="teacher.gender" name="gender" required #gender="ngModel">
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            @if ((gender.dirty || gender.touched) && gender.hasError('required') ){
+              <div class="msg"> Select Gender</div>
+              }
+          </div>
+        </li>
+        <li>
+          <div class="form-group">
+            <label class="required">Mobile</label>
+            <input type="text" class="form-control" placeholder="Mobile" [(ngModel)]="teacher.mobile" name="mobile"
+                   maxlength="10" required #mobile="ngModel" pattern="[0-9]{10}">
+          </div>
+          @if (mobile.invalid && (mobile.dirty || mobile.touched)) {
+            <div  class="text-danger">
+            @if (mobile.hasError('required')) {
+              <div class="msg">Mobile is required</div>
+            }
+            @if (mobile.hasError('pattern')) {
+              <div class="msg">Please enter a 10-digit mobile number</div>
+            }
+           
+          </div>
+        }
+        </li>
+        <li>
+          <div class="form-group">
+            <label class="required">Designation</label>
+            <input type="text" class="form-control" placeholder="Designation" pattern="[A-Za-z ]+" maxlength="20" [(ngModel)]="teacher.designation"
+              name="designation" #designation="ngModel" required>
+          </div>
+          @if ((designation.dirty || designation.touched)){
+            @if (designation.hasError('required')) {
+              <div class="msg">Designation is required</div>
+             }
+             @if (designation.hasError('pattern')) {
+              <div class="msg">Please enter Alphabeticlly</div>
+             }
+          
+            }
+        </li>
+        <li>
+          <div class="form-group">
+            <label class="required">Departments</label>
+            <select class="form-control" [(ngModel)]="teacher.departments" name="departments" #departments="ngModel" required>
+              <option value="">Select Departments</option>
+              <option value="Science">Science</option>
+              <option value="English">English</option>
+              <option value="Math">Math</option>
+            </select>
+            @if ((departments.dirty || departments.touched) && departments.hasError('required') ){
+              <div class="msg">Department is required</div>
+              }
+          </div>
+        </li>
+        <li>
+          <div class="form-group">
+            <label class="required">Email</label>
+            <input type="email" class="form-control" placeholder="test@gmail.com" email required [(ngModel)]="teacher.email"
+              name="email" #email="ngModel">
+          </div>
+          @if (email.dirty || email.touched ){
+           
+            @if (email.hasError('required')) { <div class="msg">Email is required</div>}
+            @if (email.hasError('email')) { <div class="msg">Please provide valid email</div>}
+            }
+        </li>
+        <li>
+          <div class="form-group">
+            <label class="required">Joining Date</label>
+            <input class="datepicker form-control" placeholder="DD-MM-YYYY" required matInput [matDatepicker]="picker"
+              (click)="picker.open()" [(ngModel)]="teacher.joiningDate" name="joiningDate" #joiningDate="ngModel">
+            <mat-datepicker #picker></mat-datepicker>
+          </div>
+          @if ((joiningDate.dirty || joiningDate.touched) && joiningDate.hasError('required') ){
+            <div class="msg">JoiningDate is required</div>
+            }
+        </li>
+        <!-- <li>
+          <div class="form-group">
+            <label class="required">Upload</label>
+            <input type="file" accept="image/*" class="form-control" (change)="onFileSelected($event)" name="upload">
+          </div>
+        </li> -->
+        <li class="lfull">
+          <div class="form-group">
+            <label class="required">Address</label>
+            <input type="text" class="form-control" placeholder="Address" required="" pattern="[A-Za-z0-9 ]+" name="address" #address="ngModel" [(ngModel)]="teacher.address" maxlength="50"
+              name="address">
+          </div>
+          @if (address.hasError('pattern')) {
+            <div class="msg">Please enter Alphanumeric</div>
+           }
+        </li>
+        <li class="lfull">
+          <div class="form-group">
+            <label class="required">Education</label>
+            <input type="text" class="form-control" placeholder="Write text..." required pattern="[A-Za-z0-9 ]+" name="education" #education="ngModel" [(ngModel)]="teacher.education" maxlength="30"
+              name="education">
+          </div>
+          @if (education.hasError('pattern')) {
+            <div class="msg">Please enter Alphanumeric</div>
+           }
+        </li>
+      </ul>
+    </div>
+
+    <div class="formright">
+      <div class="uploadimg">
+        <span [className]="imageUploaded==true?'image-uploaded btn_upload':'btn_upload'">
+          <input type="file" id="imag" title="" (change)="onFileChange($event)" class="input-img"/>
+          <span>Click to Upload Photo</span>
+        </span>
+        <img id="ImgPreview" [src]="imageSrc" class="preview1" />
+        <button type="button" id="removeImage1" (click)="removeImage()"  [className]="imageUploaded==true?'rmv btn-rmv1':'btn-rmv1'"><i class="fa fa-trash"></i></button>
+      </div>
+    </div>
+  </div>
+
+
+
+    <div class="form-group text-center ">
+      <button class="btn bluebtn" [disabled]="!teacherForm.valid" type="submit">Submit</button>
+      <button class="btn bluebtn cancel-btn" type="reset">Cancel</button>
+    </div>
+  </form>
+</div>

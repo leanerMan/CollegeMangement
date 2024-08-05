@@ -1,0 +1,30 @@
+<div class="sidelink scrollbarnobg aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">
+    <ul class="sidebar-menu">
+
+        @for (item of menu; track $index) {
+        <li routerLinkActive="active">
+            <a routerLink={{item.link}} (click)="toggleActive($index)">
+                <i [ngClass]="item.icon"></i>
+                <span>{{item.label}}</span>
+            </a>
+            @if (item.subItems) {
+            <div class="ddclick" (click)="toggleActive($index)" [ngClass]="activeItemIndex()===$index ? 'active':''">
+            </div>
+            <ul class="sub-menu" [@slideUpDown]="activeItemIndex() === $index ? 'down' : 'up'">
+                @for (subItem of item.subItems; track $index) {
+                  @if (subItem) {
+                    <li [ngStyle]="subItem.enable ? {} : { 'pointer-events': 'none' }">
+                      <a routerLink="{{ subItem.link }}" routerLinkActive="active">{{ subItem.label }}</a>
+                    </li>
+                  }
+                }
+              </ul>
+            }
+
+        </li>
+
+        }
+        <li class="extra"><a><i ></i><span></span></a></li>
+    </ul>
+
+</div>

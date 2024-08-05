@@ -1,0 +1,149 @@
+
+      <div class="titles" data-aos="fade-up" data-aos-duration="1000">Student Profile</div> 
+      @if (student) {
+    <div class="flexspace"> 
+        <div class="leftimg">
+          <div class="white-box studentimgbg">
+             <div class="profileimg">
+                <img ng-src="images/userimg.jpg" alt="student" id="blah" src="assets/images/userimg.jpg"> 
+            </div>
+           
+         
+            <div class="stdetail">
+              <h3>{{student.firstName}} {{student.lastName}}</h3>
+              <ul>
+                <li>
+                  <div>
+                    <label>Regitration No.</label>
+                    <div>{{student.id}}</div>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <label>Roll No.</label>
+                    <div>{{student.id}}</div>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <label>Course</label>
+                    <div>{{student.department}}</div>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <label>Session</label>
+                    <div>2018-2021</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="rightcont">
+        <div class="white-box basicinfo">
+          <div class="heading3"><span>Basic Information</span></div> 
+          <ul>
+            <li>
+              <div>
+                <label>Student ID</label>
+                <div>Student-{{student.id}}</div>
+              </div>
+            </li> 
+            <li>
+              <div>
+                <label>Name</label>
+                <div>{{student.firstName}} {{student.lastName}}</div>
+              </div>
+            </li> 
+            <li>
+              <div>
+                <label>DOB</label>
+                <div>25.02.2000</div>
+              </div>
+            </li> 
+            <li>
+              <div>
+                <label>Address</label>
+                <div>{{student.address}}</div>
+              </div>
+            </li> 
+            <li>
+              <div>
+                <label>Gender</label>
+                <div>{{student.gender}}</div>
+              </div>
+            </li> 
+            <li>
+              <div>
+                <label>Marital Status</label>
+                <div></div>
+              </div>
+            </li> 
+            <li>
+              <div>
+                <label>Nationality</label>
+                <div>Indian</div>
+              </div>
+            </li> 
+            <li>
+              <div>
+                <label>Father’s Name</label>
+                <div>Abhishek Kumar</div>
+              </div>
+            </li> 
+            <li>
+              <div>
+                <label>Mother’s Name</label>
+                <div>Poonam Devi</div>
+              </div>
+            </li>  
+          </ul>
+        </div>
+
+        <div class="white-box basicinfo">
+          <div class="heading3"><span>Contact Information</span></div> 
+          <ul>
+            <li>
+              <div>
+                <label>Email Address</label>
+                <div>{{student.email}}</div>
+              </div>
+            </li> 
+            <li>
+              <div>
+                <label>Phone Number</label>
+                <div>{{student.mobile}}</div>
+              </div>
+            </li>   
+          </ul>
+        </div>
+
+        <div class="white-box basicinfo">
+          <div class="heading3"><span> Emergency Contact</span></div> 
+          <ul>
+            <li>
+              <div>
+                <label>Contact Name</label>
+                <div>Abhishek Kumar</div>
+              </div>
+            </li> 
+            <li>
+              <div>
+                <label>Relationship</label>
+                <div>Father</div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <label>Phone Number</label>
+                <div>9876543210</div>
+              </div>
+            </li>   
+          </ul>
+        </div>
+      
+      </div>
+    </div> 
+
+  }

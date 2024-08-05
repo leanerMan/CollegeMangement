@@ -1,0 +1,191 @@
+<div class="white-box">
+    <div class="titles" data-aos="fade-up" data-aos-duration="1000">Add Staff</div> 
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    <div class="formsec">
+          <ul class="list3"> 
+            <li>
+                <div class="form-group">
+                    <label class="required">First Name</label>
+                    <input type="text" class="form-control" placeholder="First Name" 
+                           required 
+                           pattern="[a-zA-Z ]*" 
+                           [(ngModel)]="staff.firstName" 
+                           name="firstName" 
+                           #firstName="ngModel" />
+                           <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+                            <div *ngIf="firstName.errors?.['required']">first name is required.</div>
+                            <div *ngIf="firstName.errors?.['pattern']">first name be In Character.</div>
+                          </div>
+                </div>
+            </li>
+            
+            
+            
+            <li>
+                <div class="form-group">
+                  <label class="required">Last Name</label>
+                  <input type="text" class="form-control" placeholder="Last Name"
+                   required
+                   pattern="[a-zA-Z ]*"
+                   [(ngModel)]="staff.lastName"  
+                   #lastName="ngModel"
+                   name="lastName"/>
+                   <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+                    <div *ngIf="lastName.errors?.['required']">last name is required.</div>
+                    <div *ngIf="lastName.errors?.['pattern']">last name be In Character.</div>
+                  </div>
+                </div>
+                
+            </li>
+     
+            <li>
+              <div class="form-group">
+                  <label class="required">Gender</label>
+                  <select class="form-control" [(ngModel)]="staff.gender"
+                   required
+                   #gender="ngModel"
+                   name="gender">
+                    <option value="">Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                  </select>
+                  <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert alert-danger">
+                    <div *ngIf="gender.errors?.['required']">gender is required.</div>
+                    
+                  </div>
+              </div>
+          </li>
+          
+          <li>
+            <div class="form-group">
+                <label class="required">Mobile</label>
+                <input type="text" class="form-control" placeholder="Mobile"
+                [(ngModel)]="staff.mobile"
+                 required
+                 pattern="[0-9]{10}"
+                 #mobile="ngModel"
+                 name="mobile"/>    
+                 <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="alert alert-danger">
+                    <div *ngIf="mobile.errors?.['required']">number is required.</div>
+                    <div *ngIf="mobile.errors?.['pattern']">Please enter exactly 10 digits.</div>
+                  </div> 
+            </div>
+        </li>
+        <li>
+            <div class="form-group">
+                <label class="required">Designation</label>
+                <input type="text" class="form-control" placeholder="Designation"
+                 [(ngModel)]="staff.designation"
+                 required
+                 pattern="[a-zA-Z\-/, ]*"
+                 #designation="ngModel" 
+                  name="designation" />
+                  <div *ngIf="designation.invalid && (designation.dirty || designation.touched)" class="alert alert-danger">
+                    <div *ngIf="designation.errors?.['required']">designation is required.</div>
+                    <div *ngIf="designation.errors?.['pattern']">designation be In Character.</div>
+                  </div>
+            </div>
+        </li>
+        
+        <li>
+          <div class="form-group">
+              <label class="required">Departments</label>
+              <select class="form-control" [(ngModel)]="staff.departments"
+               required
+               #departments="ngModel" 
+               name="departments">
+                  <option value="">Select Departments</option>
+                  <option value="Science">Science</option> 
+                  <option value="English">English</option>
+                  <option value="Math">Math</option>
+              </select>
+              <div *ngIf="departments.invalid && (departments.dirty || departments.touched)" class="alert alert-danger">
+                <div *ngIf="designation.errors?.['required']">departments is required.</div>
+               
+              </div>
+          </div>
+      </li>
+      
+      <li>
+        <div class="form-group">
+            <label class="required">Email</label>
+            <input type="email" class="form-control" placeholder="test@gmail.com"
+                   [(ngModel)]="staff.email" 
+                   name="email" required
+                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                   #email="ngModel"   />
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                <div *ngIf="email.errors?.['required']">Email is required.</div>
+                <div *ngIf="email.errors?.['pattern']">Please enter a valid email address.</div>
+            </div>
+        </div>
+    </li>
+    
+    <li>
+        <div class="form-group">
+            <label class="required">Date</label>
+            <input type="text" class="datepicker form-control" placeholder="DD-MM-YYYY" 
+                   [(ngModel)]="staff.joiningDate"
+                   name="date" required 
+                   pattern="^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$"
+                   #date="ngModel" />
+            <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+                <div *ngIf="date.errors?.['required']">Date is required.</div>
+                <div *ngIf="date.errors?.['pattern']">Please enter a valid date in DD-MM-YYYY format.</div>
+            </div>
+        </div>
+    </li>
+    
+    <li>
+        <div class="form-group">
+            <label class="required">Upload Image</label>
+            <input type="file" class="form-control"  [(ngModel)]="staff.profilePhoto" (change)="handleFileInput($event)" accept="image/*" name="image"/>
+        </div>
+    </li>
+    
+    
+  
+  <li class="lfull">
+    <div class="form-group">
+        <label class="required">Address</label>
+        <input type="text" class="form-control" placeholder="Address" 
+        [(ngModel)]="staff.address"
+         name="address" required
+         #address="ngModel"
+         pattern="^[a-zA-Z0-9\s,'-]*$"/>
+         <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+            <div *ngIf="address.errors?.['required']">address is required.</div>
+           
+          </div>
+    </div>
+</li>            
+<li class="lfull">
+  <div class="form-group">
+      <label class="required">Education</label>
+      <input type="text" class="form-control" placeholder="Write text..."
+       [(ngModel)]="staff.education" 
+       name="education" required 
+       pattern="[a-zA-Z\-/, ]*"
+       #edu="ngModel" />
+       <div *ngIf="edu.invalid && (edu.dirty || edu.touched)" class="alert alert-danger">
+        <div *ngIf="edu.errors?.['required']">designation is required.</div>
+        <div *ngIf="edu.errors?.['pattern']">designation be In Character.</div>
+      </div>
+  </div>
+</li>
+
+<li>
+  <div class="form-group"> 
+    <button type="submit" class="btn bluebtn" style="margin-right: 5px;">Submit</button>
+    <button type="button" class="btn" type="reset">Reset</button>
+    
+  </div>
+</li>
+
+            
+        </ul>
+      </div>
+    </form>
+    </div>  
+

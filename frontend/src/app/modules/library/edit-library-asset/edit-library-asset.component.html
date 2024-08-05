@@ -1,0 +1,102 @@
+
+    <div class="white-box">
+        <div class="titles" data-aos="fade-up" data-aos-duration="1000">Edit Library Asset</div> 
+        <form (ngSubmit)="savelibrary()">
+        <div class="formsec">
+    
+              <ul class="list3">
+                <li>
+                    <div class="form-group">
+                      <label class="required">Bill No.</label>
+                      <input type="text" class="form-control" placeholder="Bill No" name="billNo" [(ngModel)]="selectedLibrary.billNo"/>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group">
+                      <label>Title</label>
+                      <input type="text" class="form-control" placeholder="Title" name="title" [(ngModel)]="selectedLibrary.title" />
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group">
+                      <label class="required">Subject</label>
+                      <select class="form-control" name="subject" [(ngModel)]="selectedLibrary.subject">
+                        <option value="Java">Java</option>
+                        <option value="Networking">Networking</option>
+                        <option value="Animation">Animation</option> 
+                      </select>
+                    </div>
+                </li><!-- 
+                <li>
+                    <div class="form-group">
+                      <label class="required">Auther Name</label>
+                      <input type="text" class="form-control" placeholder="Auther Name" />
+                    </div>
+                </li> -->
+                <li>
+                    <div class="form-group">
+                      <label class="required">Publisher</label>
+                      <input type="text" class="form-control" placeholder="Publisher" name="publisher" [(ngModel)]="selectedLibrary.publisher" />
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group">
+                      <label class="required">Department</label>
+                      <select class="form-control" name="department" [(ngModel)]="selectedLibrary.department" >
+                        <option>Select Department</option>
+                        <option value="Science">Science</option> 
+                        <option value="English">English</option>
+                        <option value="Math">Math</option>
+                      </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group">
+                      <label class="required">Asset Type</label>
+                      <select class="form-control"  name="assetType" [(ngModel)]="selectedLibrary.assetType">
+                        <option value="">Select Type</option>
+                        <option value="Book">Book</option> 
+                        <option value="CD">CD</option>
+                        <option value="DVD">DVD</option>
+                        <option value="News Paper">News Paper</option>
+                      </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group">
+                      <label class="required">Purchase Date</label>
+                      <input type="text" class="datepicker form-control" placeholder="DD-MM-YYYY" required=""  name="purchaseDate" [(ngModel)]="selectedLibrary.purchaseDate"/>
+                    </div>
+                </li> 
+                <li>
+                    <div class="form-group">
+                      <label class="required">Price</label>
+                      <input type="text" class="form-control" placeholder="Price" required="" name="price" [(ngModel)]="selectedLibrary.price" />
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group">
+                      <label class="required">Status</label>
+                      <input type="text" class="form-control" placeholder="Status" required="" name="status" [(ngModel)]="selectedLibrary.status" />
+                    </div>
+                </li> 
+                <li class="lfull">
+                    <div class="form-group">
+                      <label class="required">Details</label>
+                      <textarea class="form-control" placeholder="Details"  name="details" [(ngModel)]="selectedLibrary.details" ></textarea>
+                    </div>
+                </li> 
+                <li>
+                    <div class="form-group"> 
+                      <button class="btn bluebtn">Submit</button>
+                       <button class="btn ">Cancel</button>
+                    </div>
+                </li>
+                
+            </ul>
+    
+          </div>
+        </form>
+          
+        </div>  
+     

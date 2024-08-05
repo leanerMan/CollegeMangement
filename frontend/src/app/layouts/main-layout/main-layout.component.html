@@ -1,0 +1,16 @@
+<section class="mainsection">
+  <div class="pagesection">
+
+    <app-header class="topheading" (toggleButtonClicked)="onToggleButtonClicked($event)"></app-header>
+    <app-sidebar class="leftmenu" [ngClass]="isButtonToggled ? 'active':''" [ngStyle]="isButtonToggled?{'right': '0px'}:{'right': '1px'}">
+    </app-sidebar>
+    <div class="navicon"><span></span></div>
+
+    <div class="contentsection" [ngClass]="isButtonToggled ? 'active':''">
+      <app-breadcrumb></app-breadcrumb>
+      <router-outlet></router-outlet>
+
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,9 @@
+.text-danger {
+    color: red; /* Set text color to red */
+    /* Optionally, you can add other styles to emphasize danger */
+}
+
+.text-success {
+    color: green; /* Change the text color to green */
+    /* Optionally, you can add other styles to indicate success */
+}
